@@ -11,15 +11,15 @@ export default function SexLink() {
         <div className="grid grid-cols-2 gap-2 rounded-sm">
           {collections.map((collection) => (
             <div key={collection.id}>
-              <Link href={`/collections/${collection.name}`} className="relative">
-                <Image
+              <Link href={`/collections/${collection.name}`} className="relati">
+                {/* <Image
                   width={500}
                   height={500}
                     className="h-[160px] lg:h-[230px] w-full rounded-sm object-cover"
                     src={collection.image}
                     alt={'Women posing'}
-                  />
-                  <p className="absolute inset-0 text-2xl text-white tracking-wider font-bold flex hover:shadow-lg items-center justify-center">{collection.name}</p>
+                  /> */}
+                  <p className="inset-0 text-xl underline tracking-wider flex hover:shadow-lg items-center justify-center">{collection.name}</p>
               </Link>
             </div>
             

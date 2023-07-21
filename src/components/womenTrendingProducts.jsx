@@ -54,7 +54,6 @@ export default function WomenTrendingProducts() {
 
   return (
     <>
-        {/* Product Cart */}
       <div className="flex flex-col justify-between px- md:px-6">
           <section className="my-3 md:my-6">
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-2 gap-y-3 lg:grid-cols-4">

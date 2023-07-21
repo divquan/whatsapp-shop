@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
     <Layout>
-        <div className="">
+        <div className="my-6">
           <SexLink />
         </div>
         <div className="mt-2 lg:m-8">

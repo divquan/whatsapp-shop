@@ -69,6 +69,7 @@ export default function Header() {
     console.log('search');
     setShowSearch((prevState) => !prevState);
   };
+  
   useEffect(() => {
     const handleBodyOverflow = () => {
       if (showSearch) {
@@ -119,101 +120,6 @@ export default function Header() {
             <div>
               {/* Nav */}
               nav items goes here
-              {/* <NavigationMenu>
-                <NavigationMenuList>
-                  <NavigationMenuItem>
-                    <NavigationMenuTrigger>Men</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className="flex p-4">
-                        <div className="flex flex-col gap-3 w-[280px]">
-                          <h4 className="scroll-m-20 uppercase text-base font-semibold tracking-tight">
-                            Shop categories
-                          </h4>
-                          <ul className="flex flex-wrap gap-3">
-                            <ListItem href="#">
-                              Oxfords
-                            </ListItem>
-                            <ListItem href="#">
-                              Loafer
-                            </ListItem>
-                            <ListItem href="#">
-                              Sandals
-                            </ListItem>
-                            <ListItem href="#">
-                              Brogues
-                            </ListItem>
-                            <ListItem href="#">
-                              Slippers
-                            </ListItem>
-                            <ListItem href="#">
-                              Crocs
-                            </ListItem>
-                            <ListItem href="#">
-                              Sneakers
-                            </ListItem>
-                          </ul>
-                        </div>
-                        <div className="flex gap-2">
-                          <div>
-                            <Image className="w-16 md:w-48" ar={'1'}src={'./assets/images/herosection.jpg'} />
-                          </div>
-                          <div className="flex flex-col">
-                            <Image className="w-16 md:w-48" ar={'1'}src={'./assets/images/herosection.jpg'} />
-                          </div>
-                        </div>
-                      </div>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem>
-                    <NavigationMenuTrigger>Women</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                    <div className="flex p-4">
-                        <div className="flex flex-col gap-3 w-[280px]">
-                          <h4 className="scroll-m-20 uppercase text-base font-semibold tracking-tight">
-                            Shop categories
-                          </h4>
-                          <ul className="flex flex-wrap gap-3">
-                          <ListItem href="#">
-                            Heels
-                          </ListItem>
-                          <ListItem href="#">
-                            slipper Heels
-                          </ListItem>
-                          <ListItem href="#">
-                            Special ZARA collections
-                          </ListItem>
-                          <ListItem href="#">
-                            Crocs
-                          </ListItem>
-                          <ListItem href="#">
-                            Flats
-                          </ListItem>
-                          <ListItem href="#">
-                            Sandals
-                          </ListItem>
-                          </ul>
-                        </div>
-                        <div className="flex gap-2">
-                          <div>
-                            <Image className="w-16 md:w-48" ar={'1'}src={'./assets/images/herosection.jpg'} />
-                          </div>
-                          <div className="flex flex-col">
-                            <Image className="w-16 md:w-48" ar={'1'}src={'./assets/images/herosection.jpg'} />
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem>
-                    <Link href="/docs" legacyBehavior passHref>
-                      <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                        <span className="uppercase">Discover</span>
-                      </NavigationMenuLink>
-                    </Link>
-                  </NavigationMenuItem>
-                </NavigationMenuList>
-              </NavigationMenu> */}
             </div>
               {/* Search & Bag */}
             <div className="flex items-center gap-4">
@@ -225,9 +131,7 @@ export default function Header() {
                 </button>
               </div>
               <div>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                </svg>
+                <Cart />
               </div>
             </div>
           </div>
@@ -235,6 +139,7 @@ export default function Header() {
         {/* MOBILE MOBILE MOBILE MOBILE */}
         <div className="flex items-center py-1 justify-between w-[95%] m-auto gap-2 md:hidden ">
           <Sheet>
+            <div className="flex items-center gap-2">
               <SheetTrigger asChild>
                 <Button variant='none' className='px-0'>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -242,7 +147,14 @@ export default function Header() {
                   </svg>
                 </Button>
               </SheetTrigger>
-              <SheetContent side={'left'}>
+              <Link href={'/'}> 
+                <span className="text-lg font-bold uppercase">Company</span>
+              </Link>
+            </div>
+              <div>
+
+              </div>
+              <SheetContent side={'left'} className='w-[80vw]'>
                 <Tabs defaultValue="men" className="w-full mt-12">
                   <TabsList className="grid w-full grid-cols-2">
                     <TabsTrigger value="women">Women</TabsTrigger>
@@ -370,9 +282,7 @@ export default function Header() {
               </SheetContent>
             </Sheet>
             <div>
-              <Link href={'/'}>
-              <span className="text-lg font-bold uppercase">Company</span>
-              </Link>
+              
             </div>
             {/* SEARCH SEARCH SEARCH */}
             <div className="flex items-center gap-4">
@@ -384,16 +294,11 @@ export default function Header() {
                 </button>
               </div>
               <div>
-                <button type="button" onClick={() => setShowCart(!showCart)}>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                  </svg>
-                  {/* <span className="cart-item-qty">{totalQuantities}</span> */}
-                </button>
+                <Cart />
+
               </div>
             </div>
         </div>
-        {showCart && <Cart />}
       </header>
        {/* SEARCH SEARCH SEARCH SEARCH */}
        {showSearch ? (
@@ -411,7 +316,6 @@ export default function Header() {
             <div className="bg-white bg-opacity-100">
               <div className="flex items-center p-3">
                 <div className="mr-2">
-                  {/* <MagnifyingGlassIcon className="h-5 w-5 text-gray-500" /> */}
                 </div>
                 <input
                   type="text"
@@ -424,9 +328,10 @@ export default function Header() {
                   className="ml-2 cursor-pointer"
                   onClick={handleToggleSearch}
                 >
-                  {/* <XMarkIcon className="h-7 w-7 text-gray-500" />
-                   */}
-                   X
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+
                 </button>
               </div>
 
@@ -449,7 +354,7 @@ export default function Header() {
                         key={`search_${id}`}
                       >
                         <a href={`/products/${id}`}>
-                          <Image className="w-16 md:w-24" ar="1" src={image} />
+                          <img className="w-16 md:w-24 border" src={image} />
                           <div className="flex flex-col ">
                             <h3 className="font-bold ">{name}</h3>
                             <div>

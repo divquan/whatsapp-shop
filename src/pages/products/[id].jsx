@@ -71,12 +71,12 @@ export default function ProductDetails() {
                     alt={productList.name}
                     className="h-[608px] md:h-[550px] object-contain w-full"
                   />
-                  <p className="absolute top-0 text-sm text-red-400">Product ID: {productList.id}</p>
+                  {/* <p className="absolute top-0 text-sm text-red-400">Product ID: {productList.id}</p> */}
                 </div>
               </div>
               <div className="md:w-2/3">
                 <div>
-                  <div className="text-sm mb-2">{productList.views} views</div>
+                  {/* <div className="text-sm mb-2">{productList.views} views</div> */}
                   <h2 className="text-sm lg:text-base">{productList.name}</h2>
                   <div className="flex gap-4">
                     <p className='font-medium'>GHC {productList.normalPrice}</p>
@@ -132,12 +132,6 @@ export default function ProductDetails() {
                   className="px-4 w-full py-2 bg-gray-900 text-white rounded-sm shadow-2xl hover: focus:outline-none focus:bg-gray-900">
                     Add to Bag
                   </button>              
-                  <p className="mt-4 mb-8 text-center text-sm text-gray-500">
-                    Buying to sell?{' '}
-                    <a href="#" className="leading-6 text-gray-600 underline hover:underline-none">
-                      Get the best deal
-                    </a>
-                  </p>
                 </div>
                 <div className="w-full px-4 pt-0">
                   <div className="mx-auto w-full border-y max-w-md">
@@ -166,13 +160,10 @@ export default function ProductDetails() {
                   </div>
                 </div>
               </div>
-            
             </>
-
           )}
         </div>
       </div>
-
     </Layout>
     </>
   );
