@@ -38,7 +38,7 @@ const Cart = () => {
   const generateOrderMessage = (cartItems) => {
     let message = "";
     cartItems.forEach((item) => {
-      message += `${item.name}\nColor: ${item.color}\nSize: ${item.size}\nQuantity: ${item.quantity}\n\n`;
+      message += `${item.name}\nColor: ${item.color}\nSize: ${item.size}\nPrice: ${item.discPrice}\nQuantity: ${item.quantity}\n\n`;
     });
     return message;
   };
@@ -96,9 +96,10 @@ const Cart = () => {
     setCartItems(updatedCartItems);
   };
 
-  const orderMessage = generateOrderMessage();
-  const enconded_url = encodeURIComponent(orderMessage);
-  const whatsapp_url = `https://wa.me/${number}/?text=${encoded_url}`;
+  const orderMessage = generateOrderMessage(cartItems); // Pass cartItems to the function here
+  const encoded_url = encodeURIComponent(orderMessage);
+  const whatsapp_url = `https://wa.me/${'0549250680'}/?text=${encoded_url}`; // Change 'number' to empty string if not required
+
 
   return (
     <div>
@@ -274,16 +275,17 @@ const Cart = () => {
                   <DialogHeader>
                     <DialogTitle>Order Summary</DialogTitle>
                     <DialogDescription>
-                      Copy and send the order message to us on WhatsApp
+                      {/* Copy and send the order message to us on WhatsApp */}
                     </DialogDescription>
                   </DialogHeader>
                   <div className="grid gap-4 py-4">
                     {cartItems.map((item) => (
                       <div key={item.id}>
-                        <p className="ring-1">
+                        <p className="ring-1 p-1">
                           {item.name} <br />
                           Color: {item.color} <br />
                           size: {item.size} <br />
+                          Price: {item.discPrice} <br />
                           <span className="">Quantity: {item.quantity}</span>
                         </p>
                       </div>
@@ -292,23 +294,10 @@ const Cart = () => {
                     <p>Total Price: GHC {totalPriceInCart}</p>
                   </div>
                   <DialogFooter>
-                    <a href={whatsapp_url} className={""}>
+                    <a href={whatsapp_url} target="_blank" className="bg-primary py-2 text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50">
                       Proceed to WhatsApp
                     </a>
-
-                    <Button
-                      type="button"
-                      disabled={true}
-                      // onClick={''}
-                    >
-                      Copy Order Message
-                    </Button>
                   </DialogFooter>
-                  <div>
-                    <p className="text-gray-400 text-sm text-center">
-                      Copy and send the order message to us on WhatsApp
-                    </p>
-                  </div>
                 </DialogContent>
               </Dialog>
             </div>
