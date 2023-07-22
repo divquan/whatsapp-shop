@@ -98,8 +98,7 @@ const Cart = () => {
 
   const orderMessage = generateOrderMessage(cartItems); // Pass cartItems to the function here
   const encoded_url = encodeURIComponent(orderMessage);
-  const whatsapp_url = `https://wa.me/${'0549250680'}/?text=${encoded_url}`; // Change 'number' to empty string if not required
-
+  const whatsapp_url = `https://wa.me/${'233549250680'}/?text=${encoded_url}`; 
 
   return (
     <div>
