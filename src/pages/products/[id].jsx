@@ -23,6 +23,26 @@ export default function ProductDetails() {
   const router = useRouter();
   const { id } = router.query;
 
+  const [scrolling, setScrolling] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const scrollThreshold = 100; // Adjust this value to set the scroll threshold
+
+      // Update the scrolling state based on the scroll position
+      setScrolling(scrollY > scrollThreshold);
+    };
+
+    // Attach the scroll event listener when the component mounts
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   useEffect(() => {
     const getProductList = async () => {
       setProductList(dummyTrending);
@@ -43,8 +63,8 @@ export default function ProductDetails() {
   return (
     <>
       <Layout>
-        <div className={`md:w-[900px] md:m-[auto] ${inter.className}`}>
-          <div className="flex flex-col md:gap-11 md:flex-row py-4 md:py-6 bg-white my-6 rounded-sm shadow-md lg:py-8">
+        <div className={`md:w-[900px] md:m-[auto] relative ${inter.className}`}>
+          <div className="flex flex-col md:gap-11 md:flex-row md:py-6 bg-white mb-6 mt-2 lg:py-8">
             {loading ? (
               // Render the skeleton image while loading
               <div className="flex flex-col items-center justify-between ring-1 ring-slate-200">
@@ -59,7 +79,7 @@ export default function ProductDetails() {
               </div>
             ) : (
               <>
-                <div className=" ml-5">
+                <div className="">
                   <div className=" relative mb-4 md:mb-0 border">
                     {hasImages ? (
                       <ImageSlider img_urls={productList.images} />
@@ -69,26 +89,26 @@ export default function ProductDetails() {
                         height={500}
                         src={productList.image}
                         alt={productList.name}
-                        className="h-[608px] md:h-[550px] object-contain w-full"
+                        className="h-[608px] md:h-[550px] object-contain w-full ring-4"
                       />
                     )}
                     {/* <p className="absolute top-0 text-sm text-red-400">Product ID: {productList.id}</p> */}
                   </div>
                 </div>
-                <div className="md:w-2/3  ml-5">
-                  <div>
+                <div className="md:w-4/5">
+                  <div className="px-2 md:px-0">
                     {/* <div className="text-sm mb-2">{productList.views} views</div> */}
-                    <h2 className="text-sm lg:text-base">{productList.name}</h2>
-                    <div className="flex gap-4">
-                      <p className="font-medium">
+                    <h2 className="font-semibold lg:text-base">{productList.name}</h2>
+                    <div className="flex items-center gap-4">
+                      <p className="">
                         GHC {productList.normalPrice}
                       </p>
-                      <p className="line-through font-medium text-slate-400">
+                      <p className="line-through  text-slate-400">
                         GHC {productList.discPrice}
                       </p>
                     </div>
                   </div>
-                  <div>
+                  <div className="px-2 md:px-0">
                     {hasSizes && (
                       <div className="flex items-center">
                         <label
@@ -116,7 +136,7 @@ export default function ProductDetails() {
                       {/* Color picker goes here*/}
                       {hasColors && (
                         <div className="mt-3 mb-3">
-                          <p>Select Color:</p>
+                          {/* <p>Select Color:</p> */}
                           <div className="flex gap-2">
                             {productList.color.map((color) => (
                               <button
@@ -131,23 +151,27 @@ export default function ProductDetails() {
                               ></button>
                             ))}
                           </div>
-                          <p>Selected Color: {selectedColor}</p>
+                          <p>Color: {selectedColor}</p>
                         </div>
                       )}
                     </div>
                   </div>
-                  <div className="mt-6">
+                  <div className="mt-6 fixed w-full bottom-0 md:static">
                     <button
                       onClick={() =>
                         onAdd(productList, qty, selectedColor, selectedSize)
                       }
-                      className="px-4 w-full py-2 bg-gray-900 text-white rounded-sm shadow-2xl hover: focus:outline-none focus:bg-gray-900"
+                      className={`px-4 w-full py-2 ${
+                        scrolling ? "bg-white text-black" : "bg-black text-white"
+                      } focus:outline-none ${
+                        scrolling ? "border border-black" : "border-0"
+                      }`}
                     >
                       Add to Bag
                     </button>
                   </div>
-                  <div className="w-full px-4 pt-0">
-                    <div className="mx-auto w-full border-y max-w-md">
+                  <div className="w-full pt-0 md:mt-4 px-2 md:px-0">
+                    <div className="mx-auto w-full border-y max-w-[28rem]">
                       <Disclosure>
                         {({ open }) => (
                           <>
