@@ -123,12 +123,12 @@ const Cart = () => {
         </SheetTrigger>
         <SheetContent side="top" className="h-full overflow-scroll">
           <SheetTitle>
-            <div className="flex gap-2">
+            <div className="flex gap-2 mb-2">
               <span>Your Shopping Bag</span>
               <span className=""> ({totalQuantitiesInCart} items)</span>
             </div>
           </SheetTitle>
-          <div></div>
+          {/* <div></div> */}
           {cartItems.length < 1 && (
             <div className="bg-red-100">
               <h3>Your shopping bag is empty</h3>
@@ -138,21 +138,21 @@ const Cart = () => {
           <div className="flex flex-col gap-4">
             {cartItems.length >= 1 &&
               cartItems.map((item) => (
-                <div className="flex gap-4 sm:gap-8" key={item.id}>
+                <div className="flex gap-4 sm:gap-8 border-b pb-4" key={item.id}>
                   <div>
                     <img
                       src={item.image}
-                      className="w-[130px] h-full h-auto border object-contain"
+                      className="w-[130px] h-auto border object-contain"
                     />
                   </div>
                   <div className="flex gap-4 text-sm">
                     <div className="flex flex-col justify-between gap-1">
                       <div className="flex flex-col gap-[0.4px]">
                         <h5 className="font-semibold">{item.name}</h5>
-                        <h4>Price: GHC{item.discPrice}</h4>
+                        <h4>Price: GHC {item.discPrice}</h4>
 
-                        <p>Color: {item.color}</p>
-                        <p>Size: {item.size}</p>
+                        {item.color ? <p>Color: {item.color}</p> : <p>Color: No color</p> }
+                        {item.size ?<p>Size: {item.size}</p>: <p>size: No size</p> }
 
                         <div className="flex gap-3">
                           <span>Quantity: </span>
@@ -236,7 +236,7 @@ const Cart = () => {
                         </div>
                       )}
                     </div>
-                    <div className="flex flex-col justify-between">
+                    <div className="flex flex-col justify-between items-center">
                       <button
                         type="button"
                         className="underline"
@@ -244,13 +244,16 @@ const Cart = () => {
                       >
                         Remove
                       </button>
-                      <button
+                      {<a href={`/products/${item.id}`} className="underline">
+                        Edit
+                      </a>}
+                      {/* <button
                         type="button"
                         className="underline"
                         onClick={() => setShowEdit(!showEdit)}
                       >
                         Edit
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                 </div>
@@ -258,13 +261,12 @@ const Cart = () => {
           </div>
           {cartItems.length >= 1 && (
             <div className="cart-bottom">
-              <div className="total">
-                <h3>Subtotal:</h3>
-                <h3>GHC{totalPriceInCart}</h3>
+              <div className="border-b mb-3">
+                <h3 className="font-semibold py-2">Total: GHC{totalPriceInCart}</h3>
               </div>
               <Dialog>
                 <DialogTrigger asChild>
-                  <Button variant="none">
+                  <Button variant="none" className='w-full'>
                     <span className="bg-black text-white px-4 py-2">
                       Place Order
                     </span>
@@ -289,11 +291,11 @@ const Cart = () => {
                         </p>
                       </div>
                     ))}
-                    <p>Total quantity: {totalQuantitiesInCart}</p>
-                    <p>Total Price: GHC {totalPriceInCart}</p>
+                    <p className="font-semibold">Total Quantity: {totalQuantitiesInCart}</p>
+                    <p className="font-semibold">Total Price: GHC {totalPriceInCart}</p>
                   </div>
                   <DialogFooter>
-                    <a href={whatsapp_url} target="_blank" className="bg-primary py-2 text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50">
+                    <a href={whatsapp_url} target="_blank" className="bg-primary py-2 text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50">
                       Proceed to WhatsApp
                     </a>
                   </DialogFooter>

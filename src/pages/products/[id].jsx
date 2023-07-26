@@ -161,7 +161,7 @@ export default function ProductDetails() {
                       onClick={() =>
                         onAdd(productList, qty, selectedColor, selectedSize)
                       }
-                      className={`px-4 w-full py-2 ${
+                      className={`px-4 w-full py-3 ${
                         scrolling ? "bg-white text-black" : "bg-black text-white"
                       } focus:outline-none ${
                         scrolling ? "border border-black" : "border-0"
