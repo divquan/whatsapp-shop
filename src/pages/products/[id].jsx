@@ -89,7 +89,7 @@ export default function ProductDetails() {
                         height={500}
                         src={productList.image}
                         alt={productList.name}
-                        className="h-[608px] md:h-[550px] object-contain w-full ring-4"
+                        className="h-[608px] md:h-[550px] object-contain w-full"
                       />
                     )}
                     {/* <p className="absolute top-0 text-sm text-red-400">Product ID: {productList.id}</p> */}

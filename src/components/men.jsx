@@ -90,7 +90,7 @@ export default function Women() {
         <Title title={"Men's"} />
       </div>
       <div className='sticky top-[84px] md:top-[94px] bg-white z-40 border-y'>
-          <div className="w-[95%] m-auto md:py-4 py-6 flex justify-between items-center text-sm font-medium">
+          <div className="w-[95%] m-auto py-3 flex justify-between items-center text-sm font-medium">
             <p>{productList.length} Products</p>
             <div className='flex items-center'>
               <DropdownMenu>

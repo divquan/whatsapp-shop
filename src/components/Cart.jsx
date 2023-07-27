@@ -130,9 +130,9 @@ const Cart = () => {
           </SheetTitle>
           {/* <div></div> */}
           {cartItems.length < 1 && (
-            <div className="bg-red-100">
+            <div>
               <h3>Your shopping bag is empty</h3>
-              <Link href="/">Continue Shopping</Link>
+              {/* <Link href="/">Continue Shopping</Link> */}
             </div>
           )}
           <div className="flex flex-col gap-4">
@@ -154,9 +154,9 @@ const Cart = () => {
                         {item.color ? <p>Color: {item.color}</p> : <p>Color: No color</p> }
                         {item.size ?<p>Size: {item.size}</p>: <p>size: No size</p> }
 
-                        <div className="flex gap-3">
+                        <div className="flex items-center gap-3">
                           <span>Quantity: </span>
-                          <span className="flex">
+                          <span className="flex items-center">
                             <span
                               className=""
                               onClick={() =>
@@ -266,8 +266,8 @@ const Cart = () => {
               </div>
               <Dialog>
                 <DialogTrigger asChild>
-                  <Button variant="none" className='w-full'>
-                    <span className="bg-black text-white px-4 py-2">
+                  <Button variant="none" className='w-full px-0'>
+                    <span className="bg-black text-white py-2 w-full">
                       Place Order
                     </span>
                   </Button>
@@ -275,30 +275,33 @@ const Cart = () => {
                 <DialogContent className="sm:max-w-[425px]">
                   <DialogHeader>
                     <DialogTitle>Order Summary</DialogTitle>
-                    <DialogDescription>
-                      {/* Copy and send the order message to us on WhatsApp */}
-                    </DialogDescription>
+                    
                   </DialogHeader>
-                  <div className="grid gap-4 py-4">
+                  <div className="grid gap-4 py-4 max-h-[60vh] overflow-y-auto">
                     {cartItems.map((item) => (
                       <div key={item.id}>
-                        <p className="ring-1 p-1">
-                          {item.name} <br />
-                          Color: {item.color} <br />
-                          size: {item.size} <br />
+                        <div className="border-b pb-4">
+                          <p className="mb-1">{item.name}</p>
+                          {/* Color: {item.color} <br /> */}
+                          {item.color ? <p>Color: {item.color}</p> : '' }
+                          {item.size ?<p>Size: {item.size}</p>: '' }
+                          {/* size: {item.size} <br /> */}
                           Price: {item.discPrice} <br />
                           <span className="">Quantity: {item.quantity}</span>
-                        </p>
+                        </div>
                       </div>
                     ))}
-                    <p className="font-semibold">Total Quantity: {totalQuantitiesInCart}</p>
-                    <p className="font-semibold">Total Price: GHC {totalPriceInCart}</p>
                   </div>
-                  <DialogFooter>
-                    <a href={whatsapp_url} target="_blank" className="bg-primary py-2 text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50">
-                      Proceed to WhatsApp
-                    </a>
-                  </DialogFooter>
+                    <div className="flex flex-col w-full">
+                      <p className="font-semibold">Total Quantity: {totalQuantitiesInCart}</p>
+                      <p className="font-semibold mb-6">Total Price: GHC {totalPriceInCart}</p>
+                      <a href={whatsapp_url} target="_blank" className="bg-primary py-2 text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 mb-2">
+                        Proceed to WhatsApp
+                      </a>
+                    <DialogDescription className="text-center">
+                      <span>We process orders and payments through WhatsApp</span>
+                    </DialogDescription>
+                    </div>
                 </DialogContent>
               </Dialog>
             </div>
