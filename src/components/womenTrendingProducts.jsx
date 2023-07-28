@@ -19,7 +19,7 @@ export default function WomenTrendingProducts() {
         const data = await getProducts();
         const filteredProducts = data.filter((product) => product.sex === 'f');
         const sortedProducts = filteredProducts.sort((a, b) => b.views - a.views);
-        const slicedProducts = sortedProducts.slice(0, 7);
+        const slicedProducts = sortedProducts.slice(0, 4);
         setProductList(slicedProducts);
         setLoading(false)
       } catch (error) {
@@ -54,37 +54,39 @@ export default function WomenTrendingProducts() {
 
   return (
     <>
-          <section className="w-full h-[40vh] overflow-x-auto pt-1">
-                <div className="flex animate-carouselL2R">
-                 {loading
-            ? ''
-            // Array.from(Array(4).keys()).map((index) => (
-            //     <div
-            //       key={index}
-            //       className="flex items-center ring-slate-200"
-            //     >
-            //       <div className="animate-pulse bg-gray-200 h-[208px] md:h-[550px] w-full" />
-            //       <div className="flex flex-col w-full text-sm px-[2px]">
-            //         <div className="animate-pulse bg-gray-200 h-4 w-1/2 mb-2" />
-            //         <div className="flex items-center gap-4">
-            //           <div className="animate-pulse bg-gray-200 h-4 w-1/4" />
-            //           <div className="animate-pulse bg-gray-200 h-4 w-1/4" />
-            //         </div>
-            //       </div>
-            //     </div>
-            //   ))
+      <div className="flex flex-col justify-between px- md:px-6">
+          <section className="my-3 md:my-6">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-2 gap-y-3 lg:grid-cols-4">
+                {loading
+            ? Array.from(Array(4).keys()).map((index) => (
+                <div
+                  key={index}
+                  className="flex flex-col items-center justify-between ring-1 ring-slate-200"
+                >
+                  <div className="animate-pulse bg-gray-200 h-[208px] md:h-[550px] w-full" />
+                  <div className="flex flex-col w-full text-sm px-[2px]">
+                    <div className="animate-pulse bg-gray-200 h-4 w-1/2 mb-2" />
+                    <div className="flex items-center gap-4">
+                      <div className="animate-pulse bg-gray-200 h-4 w-1/4" />
+                      <div className="animate-pulse bg-gray-200 h-4 w-1/4" />
+                    </div>
+                  </div>
+                </div>
+              ))
             : 
             (
               productList.map((product) => (
                 <Link href={`/products/${product.id}`} key={product.id} id={`product-link-${product.id}`} 
-                className="h-[30vh] flex-none">
+                className="flex flex-col items-center">
+                    <div className='mb-2'>
                       <img
                       width='500'
                       height='500'
-                          className="h-full object-contain w-full"
+                          className="h-auto md:h-auto w-full"
                           src={product.image}
                           alt={product.name}
                       />
+                      </div>
                       <div className='flex flex-col w-full text-sm px-[2px]'>
                         {/* <div className="text-sm mb-2">{product.views} views</div> */}
                         <p className="font-semibold">{product.name}</p>
@@ -92,12 +94,13 @@ export default function WomenTrendingProducts() {
                           <p className=''>GHC {product.normalPrice}</p>
                           <p className="line-through text-slate-400">GHC {product.discPrice}</p>
                         </div>
-                      </div>
+                    </div>
                 </Link>
               ))
             )}
           </div>
         </section>
+      </div>
     </>
   );
 }

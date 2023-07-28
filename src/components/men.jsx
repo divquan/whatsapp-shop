@@ -166,25 +166,25 @@ export default function Women() {
           </div>
           </div>
       </div>
+      <div className="flex flex-col justify-between bg-white px-4 md:px-6">
       <section className="my-3 md:my-6">
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-2 gap-y-3 lg:grid-cols-4">
           {loading
-            ? 'Loading...' 
-            // Array.from(Array(8).keys()).map((index) => (
-            //     <div
-            //       key={index}
-            //       className="flex flex-col items-center justify-between ring-1 ring-slate-200"
-            //     >
-            //       <div className="animate-pulse bg-gray-200 h-[208px] md:h-[550px] w-full" />
-            //       <div className="flex flex-col w-full text-sm px-[2px]">
-            //         <div className="animate-pulse bg-gray-200 h-4 w-1/2 mb-2" />
-            //         <div className="flex items-center gap-4">
-            //           <div className="animate-pulse bg-gray-200 h-4 w-1/4" />
-            //           <div className="animate-pulse bg-gray-200 h-4 w-1/4" />
-            //         </div>
-            //       </div>
-            //     </div>
-            //   ))
+            ? Array.from(Array(8).keys()).map((index) => (
+                <div
+                  key={index}
+                  className="flex flex-col items-center justify-between ring-1 ring-slate-200"
+                >
+                  <div className="animate-pulse bg-gray-200 h-[208px] md:h-[550px] w-full" />
+                  <div className="flex flex-col w-full text-sm px-[2px]">
+                    <div className="animate-pulse bg-gray-200 h-4 w-1/2 mb-2" />
+                    <div className="flex items-center gap-4">
+                      <div className="animate-pulse bg-gray-200 h-4 w-1/4" />
+                      <div className="animate-pulse bg-gray-200 h-4 w-1/4" />
+                    </div>
+                  </div>
+                </div>
+              ))
             : 
             (
               // Render the actual product image when data is available
@@ -195,28 +195,31 @@ export default function Women() {
                   id={`product-link-${product.id}`}
                   className="flex flex-col items-center"
                 >
-                    <img
-                      width='500'
-                      height='500'
-                        className="h-[30vh] object-contain md:h-auto w-full"
-                        src={product.image}
-                        alt={product.name}
-                        // style={{
-                        //   aspectRatio: '16/14',
-                        // }}
-                    />
-                    <div className='flex flex-col w-full text-sm px-[2px]'>
-                      <p className="font-semibold">{product.name}</p>
-                      <div className="flex items-center font-normal gap-4 pt-1">
-                        <p className=''>GHC {product.normalPrice}</p>
-                        <p className="line-through text-slate-400">GHC {product.discPrice}</p>
+                  <div className='mb-2'>
+                        <img
+                        width='500'
+                        height='500'
+                            className="h-full md:h-auto w-full"
+                            src={product.image}
+                            alt={product.name}
+                            // style={{
+                            //   aspectRatio: '16/14',
+                            // }}
+                        />
+                        </div>
+                        <div className='flex flex-col w-full text-sm px-[2px]'>
+                          <p className="font-semibold">{product.name}</p>
+                          <div className="flex items-center font-normal gap-4 pt-1">
+                            <p className=''>GHC {product.normalPrice}</p>
+                            <p className="line-through text-slate-400">GHC {product.discPrice}</p>
+                          </div>
                       </div>
-                    </div>
                 </Link>
               ))
             )}
           </div>
         </section>
+      </div>
     </Layout>
   );
 }
