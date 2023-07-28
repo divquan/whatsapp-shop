@@ -351,18 +351,18 @@ export default function Header() {
                         className="flex mx-1"
                         key={`search_${id}`}
                       >
-                        <a href={`/products/${id}`} className="w-[32vw] md:w-[21vw] h-auto">
+                        <a href={`/products/${id}`} className="w-[32vw] md:w-[18vw] h-auto">
                           <img className="w-full h-auto md:w-[16vw]" src={image} />
                           <div className="flex flex-col px-[1px]">
-                            <h3 className="font-bold text-sm">{name}</h3>
-                            <div>
+                            <h3 className="font-semibold text-sm">{name}</h3>
+                            {/* <div>
                               <span className="text-sm">
                                 GH₵ {discPrice}
                               </span>
                               <span className="ml-4 text-xs line-through font-extralight text-gray-600">
                                 GH₵{normalPrice}
                               </span>
-                            </div>
+                            </div> */}
                           </div>
                         </a>
                       </div>
