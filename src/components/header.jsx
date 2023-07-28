@@ -318,7 +318,7 @@ export default function Header() {
                 </div>
                 <input
                   type="text"
-                  className="flex-grow outline-none focus:ring-0 "
+                  className="flex-grow outline-none focus:ring-0"
                   placeholder="Search"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
@@ -333,31 +333,30 @@ export default function Header() {
 
                 </button>
               </div>
-
               <div>
                 <div className="w-full flex justify-between px-3 pt-3">
-                  <span className="text-xs text-gray-700">
+                  <span className="text-xs text-gray-700 mb-1">
                     {resultLength} results
                   </span>
-                  <a href="/#" className="text-xs text-gray-700">
+                  {/* <a href="/#" className="text-xs text-gray-700">
                     See all
-                  </a>
+                  </a> */}
                 </div>
                 <hr />
-                <div className="flex flex-col md:flex-row ">
+                <div className="flex md:h-[40v] shadow-lg p-2 overflow-scroll">
                   {searchResults.map(({ id, data }) => {
                     const { name, image, normalPrice, discPrice } = data;
                     return (
                       <div
-                        className="flex flex-row md:flex-col w-full md:w-fit items-center p-3 gap-3 hover:grayscale border-transparent border-b-2 hover:border-gray-100 cursor-pointer"
+                        className="flex mx-1"
                         key={`search_${id}`}
                       >
-                        <a href={`/products/${id}`}>
-                          <img className="w-16 md:w-24 border" src={image} />
-                          <div className="flex flex-col ">
-                            <h3 className="font-bold ">{name}</h3>
+                        <a href={`/products/${id}`} className="w-[32vw] md:w-[21vw] h-auto">
+                          <img className="w-full h-auto md:w-[16vw]" src={image} />
+                          <div className="flex flex-col px-[1px]">
+                            <h3 className="font-bold text-sm">{name}</h3>
                             <div>
-                              <span className="text-base">
+                              <span className="text-sm">
                                 GH₵ {discPrice}
                               </span>
                               <span className="ml-4 text-xs line-through font-extralight text-gray-600">
