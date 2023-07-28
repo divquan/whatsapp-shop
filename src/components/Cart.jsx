@@ -286,6 +286,7 @@ const Cart = () => {
                           {item.size ?<p>Size: {item.size}</p>: '' }
                           {/* size: {item.size} <br /> */}
                           Price: {item.discPrice} <br />
+                          <p>Product id: {item.id}</p>
                           <span className="">Quantity: {item.quantity}</span>
                         </div>
                       </div>

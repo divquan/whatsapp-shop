@@ -115,11 +115,11 @@ export default function Header() {
           <div className="flex items-center justify-between">
             <div>
               {/* Logo */}
-              <Link href={'/'}>Veliore</Link>
+              <Link href={'/'} className="text-lg font-bold uppercase">Veliore</Link>
             </div>
             <div>
               {/* Nav */}
-              nav items goes here
+              {/* nav items goes here */}
             </div>
               {/* Search & Bag */}
             <div className="flex items-center gap-4">
