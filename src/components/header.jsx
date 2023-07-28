@@ -115,7 +115,7 @@ export default function Header() {
           <div className="flex items-center justify-between">
             <div>
               {/* Logo */}
-              <Link href={'/'}>Logo</Link>
+              <Link href={'/'}>Veliore</Link>
             </div>
             <div>
               {/* Nav */}
@@ -148,11 +148,10 @@ export default function Header() {
                 </Button>
               </SheetTrigger>
               <Link href={'/'}> 
-                <span className="text-lg font-bold uppercase">Company</span>
+                <span className="text-lg font-bold uppercase">Veliore</span>
               </Link>
             </div>
               <div>
-
               </div>
               <SheetContent side={'left'} className='w-[80vw]'>
                 <Tabs defaultValue="men" className="w-full mt-12">
