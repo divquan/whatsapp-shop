@@ -1,11 +1,5 @@
 import React, { useState } from "react";
 
-// TypeScript type for the Color object
-// type Color = {
-//   name: string;
-//   value: string;
-// };
-
 const ColorPicker = () => {
   const colors = [
     { name: "Red", value: "#FF0000" },

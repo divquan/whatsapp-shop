@@ -9,10 +9,8 @@ export default function SpecifiedCollection() {
     let { name } = router.query;
 
     return (
-        <div className="my-2 md:my-4 md:px-8">
-            <div>
-                {name === 'women' ? <Women /> : <Men />}
-            </div>
+        <div>
+            {name === 'women' ? <Women /> : <Men />}
         </div>
     )
 }

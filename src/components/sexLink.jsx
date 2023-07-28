@@ -8,10 +8,10 @@ const collections = [
 
 export default function SexLink() {
     return (
-        <div className="grid grid-cols-2 gap-2 rounded-sm">
+        <div className="grid grid-cols-2 gap-2">
           {collections.map((collection) => (
-            <div key={collection.id}>
-              <Link href={`/collections/${collection.name}`} className="relative">
+            <div key={collection.id} className="relative">
+              <Link href={`/collections/${collection.name}`}>
                 <Image
                   width={500}
                   height={500}
@@ -19,10 +19,9 @@ export default function SexLink() {
                     src={collection.image}
                     alt={'Women posing'}
                   />
-                  <p className="absolute inset-0 text-2xl text-white tracking-wider font-bold flex hover:shadow-lg items-center justify-center">{collection.name}</p>
+                  <p className="absolute top-[50%] left-0 right-0 translate-y-[-50%] text-white inset-0 text-xl tracking-wider flex hover:shadow-lg items-center capitalize font-semibold justify-center h-full">{collection.name}</p>
               </Link>
             </div>
-            
           ))}
         </div>
     );
