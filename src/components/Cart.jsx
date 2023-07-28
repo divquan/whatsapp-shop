@@ -275,7 +275,6 @@ const Cart = () => {
                 <DialogContent className="sm:max-w-[425px]">
                   <DialogHeader>
                     <DialogTitle>Order Summary</DialogTitle>
-                    
                   </DialogHeader>
                   <div className="grid gap-4 py-4 max-h-[60vh] overflow-y-auto">
                     {cartItems.map((item) => (

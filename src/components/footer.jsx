@@ -16,14 +16,14 @@ export default function Footer() {
           <div>
             <p>Send us "hi"</p>
             <div className="socials flex gap-4 text-sm">
-              <a className="underline" href="">WhatsApp</a>
-              <a className="underline" href="">Instagram</a>
+              <a className="underline" href="#">WhatsApp</a>
+              <a className="underline" href="#">Instagram</a>
             </div>
           </div>
 
         </div>
       </div>
-      <div className="copyright text-white text-center mt-10">
+      <div className="text-white text-center mt-10">
           Copyright &copy; 2023 fleekytrends. All rights reserved.
       </div>
     </footer>
