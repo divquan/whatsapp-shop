@@ -210,8 +210,8 @@ export default function Women() {
                         <div className='flex flex-col w-full text-sm px-[2px]'>
                           <p className="font-semibold">{product.name}</p>
                           <div className="flex items-center font-normal gap-4 pt-1">
-                            <p className=''>GHC {product.normalPrice}</p>
-                            <p className="line-through text-slate-400">GHC {product.discPrice}</p>
+                            <p className=''>GHC {product.discPrice}</p>
+                            <p className="line-through text-slate-400">GHC {product.normalPrice}</p>
                           </div>
                       </div>
                 </Link>
