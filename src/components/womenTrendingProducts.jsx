@@ -91,8 +91,8 @@ export default function WomenTrendingProducts() {
                         {/* <div className="text-sm mb-2">{product.views} views</div> */}
                         <p className="font-semibold">{product.name}</p>
                         <div className="flex items-center font-normal gap-4 pt-1">
-                          <p className=''>GHC {product.normalPrice}</p>
-                          <p className="line-through text-slate-400">GHC {product.discPrice}</p>
+                          <p className=''>GHC {product.discPrice}</p>
+                          <p className="line-through text-slate-400">GHC {product.normalPrice}</p>
                         </div>
                     </div>
                 </Link>
