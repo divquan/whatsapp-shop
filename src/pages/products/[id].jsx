@@ -101,10 +101,10 @@ export default function ProductDetails() {
                     <h2 className="font-semibold lg:text-base">{productList.name}</h2>
                     <div className="flex items-center gap-4">
                       <p className="">
-                        GHC {productList.normalPrice}
-                      </p>
-                      <p className="line-through  text-slate-400">
                         GHC {productList.discPrice}
+                      </p>
+                      <p className="line-through text-slate-400">
+                        GHC {productList.normalPrice}
                       </p>
                     </div>
                   </div>
