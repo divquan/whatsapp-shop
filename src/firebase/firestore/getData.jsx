@@ -1,5 +1,6 @@
 import db from '../config'; 
 import { doc, getDoc, collection, getDocs } from "firebase/firestore";
+import { async } from '@firebase/util';
 
 export const  getAllProducts = async () =>{
   let documentsData;
@@ -17,6 +18,16 @@ export const  getAllProducts = async () =>{
     console.error("Error fetching documents: ", error);
   }
   return documentsData;
+}
+
+export async function getAnimationProducts() {
+  const animationProductsRef = collection(db, 'landingPageAnimation')
+  const snapshot = await getDocs(animationProductsRef)
+  const animationProducts = snapshot.docs.map((doc) => ({
+    ...doc.data(),
+    id: doc.id
+  }))
+  return animationProducts;
 }
 
 

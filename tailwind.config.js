@@ -61,9 +61,13 @@ module.exports = {
           from: { height: 0 },
           to: { height: "var(--radix-accordion-content-height)" },
         },
-        leftToRight: {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-100%)' },
+        topToBottom: {
+          '0%': { transform: 'translateY(0%)' },
+          '100%': { transform: 'translateY(-100%)' },
+        },
+        bottomToTop: {
+          '0%': { transform: 'translateY(0%)' },
+          '100%': { transform: 'translateY(100%)' },
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
@@ -73,7 +77,8 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        carouselL2R: 'leftToRight 20s linear infinite',
+        carouselT2B: 'topToBottom 60s linear infinite',
+        carouselB2T: 'bottomToTop 60s linear infinite',
       },
     },
   },
