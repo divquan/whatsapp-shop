@@ -141,7 +141,7 @@ export default function LaunchDate() {
             We're Launching Soon
           </h1>
         ) : (
-          <div className='flex flex-col justify-center items-center font-semibold mb-2'>
+          <div className='flex flex-col justify-center gap-4 items-center font-semibold mb-2'>
             <h2>Thank You!</h2>
             <h2>We have added you to the queue.</h2>
           </div>
@@ -171,22 +171,24 @@ export default function LaunchDate() {
             </div>
           </div>
         ) : (
-          <div className='flex flex-col items-center justify-center mt-8'>
-            <p className='bg-gray-100 w-full p-2 text-xl font-semibold text-center'>{waitlistCount} People ahead of you</p>
-            <p>Your secret code: {secretCode}</p>
-          </div>
+          ''
+          // <div className='flex flex-col items-center justify-center mt-8'>
+          //   {/* <p className='bg-gray-100 w-full p-2 text-xl font-semibold text-center'>{waitlistCount} People ahead of you</p> */}
+          //   {/* <p>Your secret code: {secretCode}</p> */}
+            
+          // </div>
         )}
-        {!submitted ? <div className='flex flex-col justify-center items-center text-xl uppercase font-semibold mt-12'>
+        {!submitted && <div className='flex flex-col justify-center items-center text-xl uppercase font-semibold mt-12'>
           <h2>Register and get</h2>
           <h2 className='text-4xl tracking-widest font-extrabold text-orange-400'>15% OFF</h2>
           <h2>Plus free delivery</h2>
           <p className='text-xs font-normal'>Includes all purchases</p>
         </div> 
-        :
-        <div className='flex flex-col items-center text-center mt-8'>
-            <h2 className='text-lg font-semibold'>Interested in a bigger discount?</h2>
-            <p className='text-base'>Recommend to a friend and both of you gets 30% OFF on your first purchase. This applies only if you’re both among the first 100 people.<br /> So hurry up!</p>
-        </div>
+        // :
+        // <div className='flex flex-col items-center text-center mt-8'>
+        //     <h2 className='text-lg font-semibold'>Interested in a bigger discount?</h2>
+        //     <p className='text-base'>Recommend to a friend and both of you gets 30% OFF on your first purchase. This applies only if you’re both among the first 100 people.<br /> So hurry up!</p>
+        // </div>
         }
 
         {!submitted ? (
@@ -245,7 +247,7 @@ export default function LaunchDate() {
           </form>
         ) : (
           <div>
-            <Accordion type="single" collapsible className="w-full">
+            {/* <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
                     <AccordionTrigger className="uppercase" onClick={() => {console.log('sending...');}}>
                         Recommend to a friend
@@ -305,7 +307,7 @@ export default function LaunchDate() {
                         </form>
                     </AccordionContent>
                 </AccordionItem>
-            </Accordion>
+            </Accordion> */}
           </div>
         )}
       </div>

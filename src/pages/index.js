@@ -45,7 +45,7 @@ export default function Home() {
               <span>Veliore</span>
             </div>
           </section>
-          <section className="h-[30vh] md:h-[30vh] p-2 flex flex-col gap-5">
+          <section className="h-[30vh] md:h-[30vh] px-3 py-5 flex flex-col gap-5">
             <div className="flex flex-col gap-2">
               <h1 class="w-full flex-none font-bold uppercase text-2xl leading-none text-slate-900">
                 Welcome <br /> to Veliore
