@@ -1,5 +1,27 @@
 import AnimatedMenProducts from "@/components/animatedMenProducts";
 import AnimatedWomenProducts from "@/components/animatedWomenProducts";
+import LaunchDate from "@/components/launchDate";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+
+const departments = [
+  {
+    id: 1,
+    sex: "Shop Women",
+  },
+  {
+    id: 2,
+    sex: "Shop Men"
+  }
+]
 
 export default function Home() {
   return (
@@ -12,9 +34,6 @@ export default function Home() {
               <AnimatedWomenProducts />
             </div>
             <div className="flex flex-col">
-              <AnimatedMenProducts />
-            </div>
-            <div className="hidden">
               <AnimatedMenProducts />
             </div>
           </div>
@@ -31,15 +50,41 @@ export default function Home() {
               <h1 class="w-full flex-none font-bold uppercase text-2xl leading-none text-slate-900">
                 Welcome <br /> to Veliore
               </h1>
-              <p>Our goal is to build the largest catalog of quality fashion products.</p>
+              <div>Our goal is to build the largest catalog of quality footwears in Ghana.
+              <Dialog>
+                  <DialogTrigger asChild>
+                      <span className="text-black underline pl-[4px] underline-offset-4 cursor-pointer">
+                        Get early access
+                      </span>
+                  </DialogTrigger>
+                  <DialogContent className="h-full">
+                      <div>
+                        <LaunchDate />
+                      </div>
+                  </DialogContent>
+                </Dialog>
+                </div>
             </div>
             <div className="flex justify-between gap-4">
-              <button className="border border-black py-2 font-medium rounded-lg w-full">
-                <span>Shop Women</span>
-              </button>
-              <button className="border border-black py-2 font-medium rounded-lg w-full">
-                <span>Shop Men</span>
-              </button>
+                {departments.map((department) => (
+                  <Dialog key={department.id}>
+                  <DialogTrigger asChild>
+                    <Button variant="none" className='border border-black py-2 font-medium rounded-lg w-full'>
+                      <span className="text-black">
+                        {department.sex}
+                      </span>
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="h-screen">
+                    {/* <DialogHeader>
+                      <DialogTitle>Launch Date</DialogTitle>
+                    </DialogHeader> */}
+                      <div className="">
+                        <LaunchDate />
+                      </div>
+                  </DialogContent>
+                </Dialog>
+                ))}
             </div>
           </section>
         </div>

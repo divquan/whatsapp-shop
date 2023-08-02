@@ -1,5 +1,3 @@
-// TODO: Ask chatGPT for correctness
-
 import Link from 'next/link';
 import db from '@/firebase/config';
 import { collection, getDocs, doc, updateDoc } from 'firebase/firestore';
@@ -28,6 +26,7 @@ export default function WomenTrendingProducts() {
     };
     getProductList();
   }, []);
+  // console.log(productList);
 
   useEffect(() => {
     // Update view count when a product is viewed

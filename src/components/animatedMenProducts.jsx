@@ -5,6 +5,7 @@ export default function AnimatedMenProducts() {
     const [productList, setProductList] = useState([]);
     const [loading, setLoading] = useState(true);
     const bottomRef = useRef(null);
+    
 
     useEffect(() => {
       const getProductList = async () => {

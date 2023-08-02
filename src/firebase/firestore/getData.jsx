@@ -42,6 +42,16 @@ export async function getProducts() {
   return products;
 }
 
+export async function getWaitlist() {
+  const waitlistRef = collection(db, 'waitlist');
+  const snapshot = await getDocs(waitlistRef);
+  const waitlist = snapshot.docs.map((doc) => ({
+    ...doc.data(),
+    id: doc.id,
+  }));
+  return waitlist;
+}
+
 
 /*Each product object has an id and the id of a product can be passed 
 into this function as a parameter and this function will get all the various attribute of 
