@@ -79,7 +79,7 @@ export default function Home() {
                     {/* <DialogHeader>
                       <DialogTitle>Launch Date</DialogTitle>
                     </DialogHeader> */}
-                      <div className="">
+                      <div className="h-full bg-slate-100/90">
                         <LaunchDate />
                       </div>
                   </DialogContent>
