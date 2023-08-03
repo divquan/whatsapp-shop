@@ -30,10 +30,10 @@ export default function Home() {
         <section className="h-[70vh] bg-slate-200 mx-3 overflow-auto md:h-screen md:flex-1">
           {/* Left side: animated products */}
           <div className="grid grid-cols-2 gap-x-2">
-            <div className="h-full">
+            <div className="flex flex-col gap-y-1">
               <AnimatedWomenProducts />
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-y-1">
               <AnimatedMenProducts />
             </div>
           </div>
@@ -55,7 +55,7 @@ export default function Home() {
               <Dialog>
                   <DialogTrigger asChild>
                       <span className="text-orange-600 underline pl-[4px] underline-offset-4 cursor-pointer">
-                        Get early access
+                        Get early access.
                       </span>
                   </DialogTrigger>
                   <DialogContent className="h-full bg-slate-100/90">

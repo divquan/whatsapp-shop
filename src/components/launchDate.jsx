@@ -18,6 +18,11 @@ export default function LaunchDate() {
   const [secretCode, setSecretCode] = useState('');
   const [refCode, setRefCode] = useState('');
   const [currentDocId, setCurrentDocId] = useState('');
+  const [leanMore, setLeanMore] = useState(false);
+
+  function handleLeanMoreClick() {
+    setLeanMore(!leanMore)
+  }
 
   const [timeLeft, setTimeLeft] = useState({
     hours: 0,
@@ -125,31 +130,40 @@ export default function LaunchDate() {
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center mt-8">
-            <div className="flex flex-col justify-center items-center font-semibold mb-2">
+            <div className="flex flex-col justify-center items-center font-semibold mb-12">
               <h2>Thank You!</h2>
               <h2>We've added you to the queue.</h2>
             </div>
-            <p className="bg-gray-100 w-full p-2 text-xl font-semibold text-center">{waitlistCount} People ahead of you</p>
-            {/* <p>Your secret code: {secretCode}</p> */}
-            <p>Your referral link:</p>
-            <div className="flex flex-row items-center mt-2">
+            <p className="bg-gray-200/60 rounded-md w-full p-2 text-xl font-semibold text-center">{waitlistCount} People ahead of you</p>
+            <div className="flex flex-col items-center mt-8 text-center">
+            <h2 className='font-semibold'>Interested in our <span className='text-orange-600'>
+              <button onClick={handleLeanMoreClick}>loyalty program?</button>
+              </span></h2>
+            <p className='text-black/50 font-medium'>We are looking for <span className='text-black'>just 20 individuals</span> to join this unique program. Copy and share your referral link below with your friends to be part of it.<br /> <span className='text-orange-600 hover:underline underline-offset-4'>
+              <button onClick={handleLeanMoreClick}>
+                {leanMore ? <span className='underline underline-offset-4'>Hide</span> : <span className='underline underline-offset-4'>Learn more</span>}
+              </button>
+              </span></p>
+              {leanMore && <p className='bg-white p-2'>These are the benefits of our loyalty program and how it works.</p>}
+            <div className='flex flex-row mt-6'>
               <input
                 type="text"
-                value={`localhost:3000/?referral=${secretCode}`} // Replace "example.com" with your actual domain
+                value={`https://veliore.vercel.app/?referral=${secretCode}`} // Replace "example.com" with your actual domain
                 readOnly
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
+                className="block w-[250px] md:w-[300px] rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
               />
               <button
                 type="button"
                 onClick={() => {
                   // Copy the referral link to the clipboard localhost:3000/?referral=Rp36
-                  navigator.clipboard.writeText(`localhost:3000/?referral=${secretCode}`); // Replace "example.com" with your actual domain
+                  navigator.clipboard.writeText(`https://veliore.vercel.app/?referral=${secretCode}`); // Replace "example.com" with your actual domain
                   // alert('Referral link is copied to your clipboard!');
                 }}
                 className="bg-black text-white px-4 py-2 ml-2 rounded-md font-medium"
               >
                 Copy
               </button>
+            </div>
             </div>
           </div>
         )}
@@ -167,25 +181,26 @@ export default function LaunchDate() {
         {!submitted ? (
           <form onSubmit={onSubmitContact} className="flex flex-col gap-1 mt-6">
             <div>
-              <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
+              {/* <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
                 Your first name
-              </label>
+              </label> */}
               <div className="mt-2.5">
                 <input
                   type="text"
+                  placeholder='Your first name'
                   name="first-name"
                   id="first-name"
                   onChange={(e) => setName(e.target.value)}
                   required
-                  autoComplete="given-name"
+                  // autoComplete="given-name"
                   className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
             <div className="sm:col-span-2">
-              <label htmlFor="phone-number" className="block text-sm font-semibold leading-6 text-gray-900">
+              {/* <label htmlFor="phone-number" className="block text-sm font-semibold leading-6 text-gray-900">
                 Your phone number
-              </label>
+              </label> */}
               <div className="relative mt-2.5">
                 <div className="absolute inset-y-0 left-0 flex items-center">
                   <label htmlFor="country" className="sr-only">
@@ -201,6 +216,7 @@ export default function LaunchDate() {
                 </div>
                 <input
                   type="tel"
+                  placeholder='Your phone number'
                   onChange={(e) => setPhone(e.target.value)}
                   value={phone}
                   name="phone-number"
