@@ -75,11 +75,8 @@ export default function Home() {
                       </span>
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="h-screen">
-                    {/* <DialogHeader>
-                      <DialogTitle>Launch Date</DialogTitle>
-                    </DialogHeader> */}
-                      <div className="h-full bg-slate-100/90">
+                  <DialogContent className="h-full bg-slate-100/90">
+                      <div>
                         <LaunchDate />
                       </div>
                   </DialogContent>
