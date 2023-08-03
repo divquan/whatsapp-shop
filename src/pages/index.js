@@ -57,7 +57,7 @@ export default function Home() {
                         Get early access
                       </span>
                   </DialogTrigger>
-                  <DialogContent className="h-full">
+                  <DialogContent className="h-full bg-slate-100/90">
                       <div>
                         <LaunchDate />
                       </div>

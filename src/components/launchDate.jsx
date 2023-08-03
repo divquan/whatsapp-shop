@@ -16,6 +16,8 @@ export default function LaunchDate() {
   const [submitted, setSubmitted] = useState(false);
   const [waitlistCount, setWaitlistCount] = useState([]);
   const [secretCode, setSecretCode] = useState('');
+  const [refCode, setRefCode] = useState('');
+  const [currentDocId, setCurrentDocId] = useState('');
 
   const [timeLeft, setTimeLeft] = useState({
     hours: 0,
@@ -75,6 +77,8 @@ export default function LaunchDate() {
         return;
       }
 
+      // const referralCode = nanoid(8); // You can choose the length of the referral code
+
       // If the phone number is not already registered, proceed with adding the new document
       const docRef = await addDoc(contactRef, {
         name,
@@ -101,15 +105,9 @@ export default function LaunchDate() {
     <>
       <div className="">
         {!submitted ? (
-          <h1 className="flex justify-center text-lg my-4 font-bold">We're Launching Soon</h1>
-        ) : (
-          <div className="flex flex-col justify-center items-center font-semibold mb-2">
-            <h2>Thank You!</h2>
-            <h2>We have added you to the queue.</h2>
-          </div>
-        )}
-
-        {!submitted ? (
+          <div className='flex flex-col gap-2'>
+          <h1 className="flex justify-center text-lg font-bold">We're Launching Soon</h1>
+        
           <div>
             <div className="flex gap-3 items-center justify-center">
               <div className="flex gap-1 flex-col items-center">
@@ -126,9 +124,15 @@ export default function LaunchDate() {
               </div>
             </div>
           </div>
+          </div>
         ) : (
           <div className="flex flex-col items-center justify-center mt-8">
+            <div className="flex flex-col justify-center items-center font-semibold mb-2">
+              <h2>Thank You!</h2>
+              <h2>We've added you to the queue.</h2>
+            </div>
             <p className="bg-gray-100 w-full p-2 text-xl font-semibold text-center">{waitlistCount} People ahead of you</p>
+            {/* <p>Your secret code: {secretCode}</p> */}
             <p>Your referral link:</p>
             <div className="flex flex-row items-center mt-2">
               <input
@@ -152,7 +156,7 @@ export default function LaunchDate() {
           </div>
         )}
         {!submitted ? (
-          <div className="flex flex-col justify-center items-center text-xl uppercase font-semibold mt-12">
+          <div className="flex flex-col justify-center items-center text-xl uppercase font-semibold mt-6">
             <h2>Register and get</h2>
             <h2 className="text-4xl tracking-widest font-extrabold text-orange-400">15% OFF</h2>
             <h2>Plus free delivery</h2>
@@ -163,10 +167,10 @@ export default function LaunchDate() {
         )}
 
         {!submitted ? (
-          <form onSubmit={onSubmitContact} className="flex flex-col gap-1 mt-12">
+          <form onSubmit={onSubmitContact} className="flex flex-col gap-1 mt-6">
             <div>
               <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
-                Your name
+                Your first name
               </label>
               <div className="mt-2.5">
                 <input
