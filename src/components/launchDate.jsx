@@ -77,8 +77,6 @@ export default function LaunchDate() {
         return;
       }
 
-      // const referralCode = nanoid(8); // You can choose the length of the referral code
-
       // If the phone number is not already registered, proceed with adding the new document
       const docRef = await addDoc(contactRef, {
         name,
@@ -158,7 +156,7 @@ export default function LaunchDate() {
         {!submitted ? (
           <div className="flex flex-col justify-center items-center text-xl uppercase font-semibold mt-6">
             <h2>Register and get</h2>
-            <h2 className="text-4xl tracking-widest font-extrabold text-orange-400">15% OFF</h2>
+            <h2 className="text-4xl tracking-widest font-extrabold text-orange-600">15% OFF</h2>
             <h2>Plus free delivery</h2>
             <p className="text-xs font-normal">Includes all purchases</p>
           </div>

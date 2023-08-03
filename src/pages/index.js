@@ -26,7 +26,7 @@ const departments = [
 export default function Home() {
   return (
     <>
-      <main className="bg-slate-100 h-screen md:flex md:gap-2">
+      <main className="bg-slate-100 h-screen md:flex">
         <section className="h-[70vh] bg-slate-200 mx-3 overflow-auto md:h-screen md:flex-1">
           {/* Left side: animated products */}
           <div className="grid grid-cols-2 gap-x-2">
@@ -39,21 +39,22 @@ export default function Home() {
           </div>
         </section>
         {/* Right side: logo & texts */}
-        <div className="md:h-screen">
-          <section className="hidden md:flex h-[70vh] bg-slate-300 justify-center items-center">
-            <div className="text-black text-6xl uppercase leading-none font-bold">
-              <span>Veliore</span>
+        <div className="md:h-screen bg-white">
+          <section className="hidden md:flex h-[70vh] bg-white justify-center items-center">
+            <div className="text-black text-6xl text-center uppercase leading-none font-bold">
+              <h1>Welcome to</h1>
+              <h1>Veliore</h1>
             </div>
           </section>
-          <section className="h-[30vh] md:h-[30vh] px-3 py-5 flex flex-col gap-5">
+          <section className="h-[30vh] md:h-[30vh] md:border-t px-3 py-5 flex flex-col gap-5 md:gap-8">
             <div className="flex flex-col gap-2">
-              <h1 class="w-full flex-none font-bold uppercase text-2xl leading-none text-slate-900">
-                Welcome <br /> to Veliore
+              <h1 class="w-full flex-none md:hidden font-bold uppercase text-2xl leading-none text-slate-900">
+                <span>Welcome <br /> to </span>Veliore
               </h1>
-              <div>Our goal is to build the largest catalog of quality footwears in Ghana.
+              <div className="md:text-xl max-w-lg md:font-semibol">Our goal is to build the largest catalog of quality footwears in Ghana.
               <Dialog>
                   <DialogTrigger asChild>
-                      <span className="text-black underline pl-[4px] underline-offset-4 cursor-pointer">
+                      <span className="text-orange-600 underline pl-[4px] underline-offset-4 cursor-pointer">
                         Get early access
                       </span>
                   </DialogTrigger>
