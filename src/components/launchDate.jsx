@@ -178,8 +178,8 @@ export default function LaunchDate() {
         ) : (
           <div className="flex flex-col items-center justify-center mt-8">
             <div className="flex flex-col justify-center items-center font-semibold mb-12">
-              <h2>Thank You!</h2>
-              <h2>We've added you to the queue.</h2>
+              <h2>Thank you for joining!</h2>
+              {/* <h2>We've added you to the queue.</h2> */}
             </div>
             <p className="bg-gray-200/60 rounded-md w-full p-2 text-xl font-semibold text-center">{waitlistCount} People ahead of you</p>
             <div className="flex flex-col items-center mt-8 text-center">
