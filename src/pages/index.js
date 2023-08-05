@@ -26,8 +26,8 @@ const departments = [
 export default function Home() {
   return (
     <>
-      <main className="bg-slate-100 h-screen md:flex">
-        <section className="h-[70vh] bg-slate-200 mx-3 overflow-auto md:h-screen md:flex-1">
+      <main className="bg-[#f5f5f7] h-screen md:flex">
+        <section className="h-[70vh] bg-[#f5f5f7] mx-3 overflow-auto md:h-screen md:flex-1">
           {/* Left side: animated products */}
           <div className="grid grid-cols-2 gap-x-2">
             <div className="flex flex-col gap-y-1">
@@ -58,7 +58,7 @@ export default function Home() {
                         Get early access.
                       </span>
                   </DialogTrigger>
-                  <DialogContent className="h-full bg-slate-100/90">
+                  <DialogContent className="h-full bg-[#f5f5f7]">
                       <div>
                         <LaunchDate />
                       </div>
@@ -76,7 +76,7 @@ export default function Home() {
                       </span>
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="h-full bg-slate-100/90">
+                  <DialogContent className="h-full bg-[#f5f5f7]">
                       <div>
                         <LaunchDate />
                       </div>

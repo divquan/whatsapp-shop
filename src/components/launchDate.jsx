@@ -92,38 +92,20 @@ export default function LaunchDate() {
                     {phone} already has a spot in the waitlist.
                   </p>
                   <p className="mt-1 text-sm text-black/50">
-                    A link will be provided for already registered people to view how well they are doing with their referrals. Coming soon...
+                  Coming soon... We'll provide a link for already registered people to view how well they are doing with their referrals.
                   </p>
                 </div>
                 
               </div>
-              {/* <div className='flex flex-row mt-6'>
-              <input
-                type="text"
-                value={`https://veliore.vercel.app/?referral=${secretCode}`} // Replace "example.com" with your actual domain
-                readOnly
-                className="block w-[250px] md:w-[300px] rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
-              />
-              <button
-                type="button"
-                onClick={() => {
-                  navigator.clipboard.writeText(`https://veliore.vercel.app/?referral=${secretCode}`); 
-                  toast.success('Successfully copied!')
-                }}
-                className="bg-black text-white px-4 py-2 ml-2 rounded-md font-medium"
-              >
-                Copy
-              </button>
-            </div> */}
             </div>
-            <div className="flex border-l border-gray-200">
+            {/* <div className="flex border-l border-gray-200">
               <button
                 onClick={() => toast.dismiss(t.id)}
                 className="w-full p-4 flex items-center justify-center text-sm font-medium text-black hover:text-black ring-black/50 ring-1 rounded-b-md focus:outline-none focus:ring-2 focus:ring-black"
               >
                 Close
               </button>
-            </div>
+            </div> */}
           </div>
         ))
         return;
@@ -176,40 +158,41 @@ export default function LaunchDate() {
           </div>
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center mt-8">
-            <div className="flex flex-col justify-center items-center font-semibold mb-12">
+          <div className="flex flex-col items-center justify-center mt-4 text-[#86868b]">
+            <div className="flex flex-col justify-center items-center font-semibold mb-8">
               <h2>Thank you for joining!</h2>
               {/* <h2>We've added you to the queue.</h2> */}
             </div>
-            <p className="bg-gray-200/60 rounded-md w-full p-2 text-xl font-semibold text-center">{waitlistCount} People ahead of you</p>
+            <p className="bg-gray-200/60 rounded-md w-full p-2 text-lg font-semibold text-center">{waitlistCount} People ahead of you</p>
             <div className="flex flex-col items-center mt-8 text-center">
-            <h2 className='font-semibold mb-1'>Interested in our <span className='text-orange-600'>
+            {leanMore ? <h2 className='font-semibold mb-1 text-black'>Benefits of our <span className='text-orange-600'>
+              <button onClick={handleLeanMoreClick}>loyalty program</button>
+              </span></h2> : <h2 className='font-semibold mb-1 text-black'>Interested in our <span className='text-orange-600'>
               <button onClick={handleLeanMoreClick}>loyalty program?</button>
-              </span></h2>
-            <p className='text-black/50 font-medium'>We are looking for <span className='text-black'>just 20 individuals</span> to join this unique program. Copy and share your referral link below with your friends to be part of it.</p> <div className='flex gap-1 text-orange-600 hover:underline underline-offset-4'>
+              </span></h2>}
+            {!leanMore && <p className='font-medium'>We are looking for <span className='text-black'>just 20 individuals</span> to join this unique program. Copy and share your referral link below with your friends to be part of it.</p> }<div className='flex gap-1 items-center text-orange-600 hover:underline underline-offset-4'>
               <button onClick={handleLeanMoreClick}>
                 {leanMore ? 
                 <span className='underline underline-offset-4'>Hide</span> : <span className='underline underline-offset-4'>See benefits</span>}
               </button>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-</svg>
-
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>
               </div>
               {leanMore && 
-                <div className='flex flex-col gap-2 items-start w-full bg-white p-2 mt-1 rounded-md max-h-48 overflow-auto'>
+                <div className='flex flex-col gap-2 items-start w-full bg-white p-2 mt-1 rounded-md max-h-80 overflow-auto'>
                   <div className='w-full flex flex-col items-start'>
-                    <h3 className='font-semibold text-lg'>What Awaits You</h3>
-                    <ul className='list-decimal list-inside text-left text-black/50'>
-                      <li><span className='text-black'>🚚 Say goodbye to delivery fees:</span> Enjoy seamless shopping with free delivery on all your purchases, forever. No more extra costs.</li>
-                      <li className='text-black/50'><span className='text-black'>💳 Installment Payment Option:</span> Soon, you'll have the power to pay in convenient installments, making your shopping experience even more flexible and hassle-free.</li>
-                      <li className='text-black/50'><span className='text-black'>📣 First Glimpse of Promos and Exclusives:</span> Stay ahead of the curve and be the first to know about our exciting promotions and exclusive product updates With you, we'll share the secrets of our newest arrivals.</li>
-                      <li className='text-black/50'><span className='text-black'>✨ And More Delights to Discover!</span> We're dedicated to pampering our loyal members with surprises and exclusive privileges</li>
+                    <h3 className='font-semibold text-lg text-black'>What Awaits You</h3>
+                    <ul className='list-decimal list-inside text-left'>
+                      <li><span className='text-black'>🚚 Say goodbye to delivery fees:</span> Enjoy seamless shopping with free delivery on all your purchases, <span className='text-black'>forever.</span> No more extra costs.</li>
+                      <li className=''><span className='text-black'>💳 Installment Payment Option:</span> Soon, you'll have the chance to pay in convenient installments, making your shopping experience even more flexible and hassle-free.</li>
+                      <li className='text-black/50'><span className='text-black'>📣 First Glimpse of Promos and Exclusives:</span> Stay ahead of the curve and be the first to know about our exciting promotions and exclusive product updates. You'll <span className='text-black'>be the very first to hear</span> about our super fun deals and special new arivals.</li>
+                      <li className='text-black/50'><span className='text-black'>✨ And More Delights to Discover!</span> We're dedicated to pampering our loyal members with surprises and exclusive privileges.</li>
                     </ul>
                   </div>
                   <div className='w-full flex flex-col items-start'>
-                    <h3 className='font-semibold text-lg'>How the Program Works</h3>
-                    <p className='text-left'>Invite your friends to join this elite circle. Simply share your unique referral link with them, and when 10 of them register through your link, you automatically become a revered member of our loyalty program.</p>
+                    <h3 className='font-semibold text-lg text-black'>How the Program Works</h3>
+                    <p className='text-left'><span className='text-black'>Invite your friends</span> to join this elite circle. Simply share your unique referral link with them, and <span className='text-black'>when 10 of them register through your link, you automatically become a member of our loyalty program.</span></p>
                   </div>
                 </div>
               }
