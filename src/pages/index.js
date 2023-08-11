@@ -51,7 +51,7 @@ export default function Home() {
               <h1 class="w-full flex-none md:hidden font-bold uppercase text-2xl leading-none text-slate-900">
                 <span>Welcome <br /> to </span>Veliore
               </h1>
-              <div className="md:text-xl max-w-lg md:font-semibol">Our goal is to build the largest catalog of quality footwears in Ghana.
+              <div className="md:text-xl max-w-lg md:font-semibol">We are building the largest collection of quality and exceptional footwears in Ghana.
               <Dialog>
                   <DialogTrigger asChild>
                       <span className="text-orange-600 underline pl-[4px] underline-offset-4 cursor-pointer">

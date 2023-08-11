@@ -33,7 +33,7 @@ export default function LaunchDate() {
   });
 
   const calculateTimeLeft = () => {
-    const eventDate = new Date('2023-08-10'); // Replace this with your target date
+    const eventDate = new Date('2023-08-25'); // Replace this with your target date
     const now = new Date();
     const difference = eventDate - now;
 
@@ -92,7 +92,7 @@ export default function LaunchDate() {
                     {phone} already has a spot in the waitlist.
                   </p>
                   <p className="mt-1 text-sm text-black/50">
-                  Coming soon... We'll provide a link for already registered people to view how well they are doing with their referrals.
+                  Your referral link will be sent to you on SMS or WhatsApp.
                   </p>
                 </div>
                 
@@ -221,7 +221,7 @@ export default function LaunchDate() {
         )}
         {!submitted ? (
           <div className="flex flex-col justify-center items-center text-xl uppercase font-semibold mt-6">
-            <h2>Register and get</h2>
+            <h2>Early access get</h2>
             <h2 className="text-4xl tracking-widest font-extrabold text-orange-600">15% OFF</h2>
             {/* <h2>Plus free delivery</h2> */}
             <p className="text-xs font-normal">Includes all purchases</p>
@@ -262,7 +262,7 @@ export default function LaunchDate() {
               </div>
             </div>
             <button type="submit" className="w-full bg-black rounded-md uppercase text-white py-3 text-sm font-medium mt-2">
-              Register
+              Get early access
             </button>
           </form>
         ) : (
