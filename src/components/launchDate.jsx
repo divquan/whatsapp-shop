@@ -116,6 +116,7 @@ export default function LaunchDate() {
         name,
         phone,
         referralCode, // Store the referral code along with the user's information
+        waitlistCount
       });
 
       setSubmitted(true);
